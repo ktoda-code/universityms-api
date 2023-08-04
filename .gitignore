@@ -34,3 +34,4 @@ build/
 
 ### Project Specific ###
 *.properties
+src/main/resources/application.properties

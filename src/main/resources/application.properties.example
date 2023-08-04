@@ -1,1 +1,4 @@
-
+# Database connection
+spring.datasource.url=jdbc:mysql://localhost:3306/university-ms
+spring.datasource.username={USERNAME}
+spring.datasource.password={PASSWORD}
