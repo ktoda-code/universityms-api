@@ -1,5 +1,6 @@
 package com.ktoda.universityms.subject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.assignment.Assignment;
 import com.ktoda.universityms.forum.Forum;
 import com.ktoda.universityms.department.Department;
@@ -36,6 +37,7 @@ public class Subject {
     private Forum forum;
     @ManyToOne
     @JoinColumn(name = "teacher")
+    @JsonIgnore
     private Teacher teacher;
     @OneToMany(mappedBy = "subject", fetch = FetchType.LAZY)
     private List<Assignment> assignments;
@@ -45,6 +47,7 @@ public class Subject {
             joinColumns = @JoinColumn(name = "subject"),
             inverseJoinColumns = @JoinColumn(name = "student")
     )
+    @JsonIgnore
     private List<Student> students;
 
     public Subject(String name, String description, Department department,

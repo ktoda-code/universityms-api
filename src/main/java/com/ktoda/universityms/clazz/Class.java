@@ -1,4 +1,4 @@
-package com.ktoda.universityms.classtype;
+package com.ktoda.universityms.clazz;
 
 import com.ktoda.universityms.subject.Subject;
 import jakarta.persistence.*;

@@ -1,5 +1,6 @@
 package com.ktoda.universityms.enrollment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.grade.Grade;
 import com.ktoda.universityms.subject.Subject;
 import com.ktoda.universityms.student.Student;
@@ -24,10 +25,12 @@ public class Enrollment {
     @ManyToOne
     @MapsId("studentId")
     @JoinColumn(name = "student")
+    @JsonIgnore
     private Student student;
     @ManyToOne
     @MapsId("subjectId")
     @JoinColumn(name = "subject")
+    @JsonIgnore
     private Subject subject;
     @OneToMany(mappedBy = "enrollment", cascade = CascadeType.ALL)
     private List<Grade> grades;

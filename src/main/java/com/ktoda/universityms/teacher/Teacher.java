@@ -1,5 +1,6 @@
 package com.ktoda.universityms.teacher;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.forum.Forum;
 import com.ktoda.universityms.tutorsession.TutorSession;
 import com.ktoda.universityms.subject.Subject;
@@ -28,6 +29,7 @@ public class Teacher {
     private boolean active;
     @OneToOne
     @JoinColumn(name = "user")
+    @JsonIgnore
     private User user;
     @OneToOne
     @JoinColumn(name = "office")
