@@ -1,5 +1,6 @@
 package com.ktoda.universityms.tutorsession;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.teacher.Teacher;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class TutorSession {
     private Time endTime;
     @ManyToOne
     @JoinColumn(name = "teacher")
+    @JsonIgnore
     private Teacher teacher;
 
     public TutorSession(Date date, Time startTime, Time endTime, Teacher teacher) {

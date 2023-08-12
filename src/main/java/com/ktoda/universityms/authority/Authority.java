@@ -10,7 +10,6 @@ import lombok.ToString;
 @Entity
 @Table(name = "authorities")
 @NoArgsConstructor
-@ToString
 @Getter
 @Setter
 public class Authority {

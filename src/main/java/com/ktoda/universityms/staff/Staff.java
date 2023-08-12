@@ -1,5 +1,6 @@
 package com.ktoda.universityms.staff;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.office.Office;
 import com.ktoda.universityms.ticket.Ticket;
 import com.ktoda.universityms.user.User;
@@ -25,11 +26,12 @@ public class Staff {
     private long id;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user")
+    @JsonIgnore
     private User user;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "office")
     private Office office;
-    @OneToMany(mappedBy = "staff")
+    @OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
     private List<Ticket> tickets;
 
     public Staff(User user, Office office) {

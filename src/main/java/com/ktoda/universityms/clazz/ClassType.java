@@ -1,4 +1,4 @@
-package com.ktoda.universityms.classtype;
+package com.ktoda.universityms.clazz;
 
 public enum ClassType {
     LABORATORY("lab"), LECTURE("lecture"), PRACTICE("practice"), EXAM("exam");

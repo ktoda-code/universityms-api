@@ -1,7 +1,9 @@
 package com.ktoda.universityms.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ktoda.universityms.forumresponse.ForumResponse;
 import com.ktoda.universityms.authority.Authority;
+import com.ktoda.universityms.staff.Staff;
 import com.ktoda.universityms.ticket.Ticket;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -16,7 +18,6 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-@ToString
 @Getter
 @Setter
 public class User {
@@ -37,19 +38,23 @@ public class User {
     private Date dateBirth;
     @OneToMany(
             mappedBy = "user",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+            cascade = CascadeType.ALL)
     private List<Ticket> tickets;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Authority> authorities;
     @OneToMany(
             mappedBy = "user",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+            fetch = FetchType.EAGER)
     private List<ForumResponse> forumResponses;
 
-    public User(String username, String firstName, String lastName, String password,
-                String email, Date dateStarted, Date dateBirth) {
+    public User(String username,
+                String firstName,
+                String lastName,
+                String password,
+                String email,
+                Date dateStarted,
+                Date dateBirth) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
